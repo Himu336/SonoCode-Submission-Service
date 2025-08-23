@@ -1,6 +1,8 @@
 const fastify = require('fastify')({ logger: true }); // calling the fastify constructor
 const app = require('./app');
-const serverConfig = require('./serverConfig');
+const serverConfig = require('./config/serverConfig');
+const connectToDB = require('./config/dbConfig.js');
+
 
 fastify.register(app);
 
@@ -12,4 +14,4 @@ fastify.listen({ port: serverConfig.PORT }, async (err) => {
 
     await connectToDB();
     console.log(`Server up at port ${serverConfig.PORT}`);
-});
+}); 

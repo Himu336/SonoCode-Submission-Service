@@ -1,7 +1,6 @@
 const SubmissionRepository = require('./submissionRepository');
 const fastifyPlugin = require('fastify-plugin');
 async function repositoryPlugin(fastify, options) {
-    fastify.decorate('testService', new TestService());
     fastify.decorate('submissionRepository', new SubmissionRepository());
 }
 

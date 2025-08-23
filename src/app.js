@@ -8,13 +8,13 @@ const repositoryPlugin = require('./repositories/repositoryPlugin');
  * @param {*} options 
  */
 async function app(fastify, options) {
-    fastify.register(require('@fastify/cors'));
-    fastify.register(repositoryPlugin);
-    fastify.register(servicePlugin);
+    await fastify.register(require('@fastify/cors'));
+    await fastify.register(repositoryPlugin);
+    await fastify.register(servicePlugin);
 
 
     // register test routes
-    fastify.register(require('./routes/api/apiRoutes'), {prefix: '/api'});
+    await fastify.register(require('./routes/api/apiRoutes'), {prefix: '/api'});
 
 
 }
